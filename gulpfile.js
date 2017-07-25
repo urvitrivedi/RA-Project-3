@@ -1,8 +1,6 @@
 // JavaScript Document
 
 
-// convert SASS to CSS
-
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
@@ -22,6 +20,7 @@ gulp.task('scss', function() {
   	.pipe(gulp.dest('./dist/css/'));
 });
 
+
 //JS - concat, ugilify
 gulp.task('unify-js', function() {
     gulp.src('./comp/js/*.js')
@@ -30,19 +29,18 @@ gulp.task('unify-js', function() {
     .pipe(gulp.dest('./dist/js/'));
 });
 
-/*----a watch task that is watching folder-./comp/scss/*.scss for changes
-and when we have a change calling task sass-2-css and converting to css
---------------*/
-//gulp.task("css-watch", function() {
-//  gulp.watch(["./comp/scss/*.scss"],["sass-2-css"]);
-//});
 
-/*----a watch task that is watching folder-./comp/js/*.js.scss for changes
-and when we have a change calling task unify-js and converting to css
---------------*/
-//gulp.task("js-watch", function() {
-//  gulp.watch(["./comp/js/*.js"],["unify-js"]);
-//});
+/*Watch for SCSS*/
+gulp.task("css-watch", function() {
+  gulp.watch(["./comp/scss/style.scss"],["scss"]);
+});
+
+
+/*Watch for JS*/
+gulp.task("js-watch", function() {
+  gulp.watch(["./comp/js/instanews.js"],["unify-js"]);
+});
+
 
 // Browser Sync
 gulp.task('browser-sync', function() {
