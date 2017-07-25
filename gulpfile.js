@@ -51,5 +51,6 @@ gulp.task('browser-sync', function() {
             baseDir: "./"
         }
     });
-    gulp.watch(["*.html","dist/css/style.css","dist/js/script.js"]).on("change", reload);
+   // gulp.watch(["*.html","dist/css/style.css","dist/js/script.js"]).on("change", reload);
+	gulp.watch("./*").on("change", reload);
 });
